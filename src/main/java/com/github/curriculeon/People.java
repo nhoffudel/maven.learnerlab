@@ -11,31 +11,31 @@ public class People {
     }
 
     public Person findById(long id){
-        for (int i = 0; i < personList.size(); i++){
-            if (personList.get(i).getId() == id) return personList.get(i);
+        for (Person person : personList) {
+            if (person.getId() == id) return person;
         }
         return null;
     }
 
     public Boolean contains(Person person){
-        for (int i = 0; i < personList.size(); i++){
-            if (personList.get(i).equals(person)) return true;
+        for (Person value : personList) {
+            if (value.equals(person)) return true;
         }
         return false;
     }
 
     public void remove(Person person){
         List<Person> personList2 = null;
-        for (int i = 0; i < personList.size(); i++){
-            if (!personList.get(i).equals(person)) personList2.add(personList.get(i));
+        for (Person value : personList) {
+            if (!value.equals(person)) personList2.add(value);
         }
         personList = personList2;
     }
 
     public void remove(long id){
         List<Person> personList2 = null;
-        for (int i = 0; i < personList.size(); i++){
-            if (!personList.get(i).getID().equals(id)) personList2.add(personList.get(i));
+        for (Person person : personList) {
+            if (!person.getID().equals(id)) personList2.add(person);
         }
         personList = personList2;
     }
@@ -49,15 +49,14 @@ public class People {
     }
 
     public Person[] toArray(){
-        Person answer[] = new Person[personList.size()];
+        Person[] answer = new Person[personList.size() - 1];
         for (int i = 0; i < personList.size(); i++){
             answer[i] = personList.get(i);
         }
         return answer;
     }
 
-    public Iterator<E> iterator(){
-        Iterator<Person> it = new Iterator(personList);
-        return it;
+    public Iterator<Person> iterator(){
+        return personList.iterator();
     }
 }
