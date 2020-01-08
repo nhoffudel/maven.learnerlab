@@ -9,6 +9,9 @@ public class Person {
         this.name = name;
     }
 
+    public Person() {
+    }
+
     public long getId() {
         return id;
     }
@@ -19,5 +22,9 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Object getID() {
+        return id;
     }
 }
